@@ -1,0 +1,22 @@
+import requests
+import json
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
+
+headers = {
+    'X-Api-Key': '582cd2f712688fa5d3c5425a2e706efe7a9bdfa882367f5',
+}
+
+data = {
+  'policy_id': '226882'
+}
+
+response = requests.post('https://api.newrelic.com/v2/alerts_conditions.json', headers=headers, data=data)
+
+data = json.loads(response.content)
+#pp.pprint(data)
+for dat in data['conditions']:
+    #print dat['name']
+    for dt in dat['terms']:
+        print dat['name'] + ' ' +dt['operator'] + ' '  +dt['threshold'] + ' for ' +dt['duration'] + ' mins ' + 'Priority '+ dt['priority']
+    print "----"
