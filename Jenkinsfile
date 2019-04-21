@@ -3,12 +3,8 @@ def script
 context = getBuildContext()
 
 timestamps{
-  stage('first'){
-    hello(context)
-  }
-  stage('second'){
-    echo 'hello...'
-  }
+   prepareEnv()
+  
 }
 
 def getBuildContext(){
@@ -27,4 +23,27 @@ def hello(context){
   if (context.environment == 'QA'){
     echo 'QA env'
   }
+}
+
+def prepareEnv(){
+  script.stage('prepare'){
+     if (context.environment == 'QA'){
+       echo 'QA env'
+     } else {
+       echo context.environment 
+     }
+  }
+}
+
+def mediaInit(context){
+  
+}
+def mediaCodeDeployment(context){
+  
+  
+}
+
+def mediaCodeDeployment(context){
+  
+  
 }
