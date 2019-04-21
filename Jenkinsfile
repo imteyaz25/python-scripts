@@ -1,10 +1,12 @@
 def context
-def script
+def stage
 context = getBuildContext()
-script = getScript()
+
 timestamps{
-   prepareEnv(context, script)
-  
+   prepareEnv(context, 'prepare')
+   mediaInit(context, 'Initialization')
+   mediaCodeDeployment(context, 'Deploment')
+   mediaFinish(context, 'Finish')
 }
 
 def getBuildContext(){
@@ -19,10 +21,7 @@ def getBuildContext(){
   return context
 }
 
-def getScript(){
-  def script = cli()
-  return script
-}
+
 
 def hello(context){
   if (context.environment == 'QA'){
@@ -30,8 +29,8 @@ def hello(context){
   }
 }
 
-def prepareEnv(context, script){
-  script.stage('prepare'){
+def prepareEnv(context, stageName){
+  stage(stageName){
      if (context.environment == 'QA'){
        echo 'QA env'
      } else {
@@ -40,10 +39,20 @@ def prepareEnv(context, script){
   }
 }
 
-def mediaInit(context){
-  
+def mediaInit(context, stagename){
+   stage(stageName){
+      println(stageName)
+   }
 }
-def mediaCodeDeployment(context){
-  
-  
+
+def mediaCodeDeployment(context, stageName){
+   stage(stageName){
+      println(stageName)
+   }
+}
+
+def mediaFinish(context, stageName){
+   stage(stageName){
+      println(stageName)
+   }
 }
