@@ -1,13 +1,10 @@
-pipeline {
-  agent any
-  def context = getBuildContext{}
-  timestamps{
-    stage('first'){
-      prepareEnv(context)
-    }
-    stage('second'){
-      hello(context)
-    }
+def context = getBuildContext{}
+timestamps{
+  stage('first'){
+    prepareEnv(context)
+  }
+  stage('second'){
+    hello(context)
   }
 }
 
