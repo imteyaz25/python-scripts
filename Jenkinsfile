@@ -42,8 +42,3 @@ def mediaCodeDeployment(context){
   
   
 }
-
-def mediaCodeDeployment(context){
-  
-  
-}
