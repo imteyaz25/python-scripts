@@ -1,6 +1,6 @@
 def context
 def script
-context = getBuildContext{}
+context = getBuildContext()
 
 timestamps{
   stage('first'){
