@@ -1,9 +1,9 @@
 def context
 def script
 context = getBuildContext()
-
+script = getScript()
 timestamps{
-   prepareEnv()
+   prepareEnv(context, script)
   
 }
 
@@ -19,13 +19,18 @@ def getBuildContext(){
   return context
 }
 
+def getScript(){
+  def script = cli()
+  return script
+}
+
 def hello(context){
   if (context.environment == 'QA'){
     echo 'QA env'
   }
 }
 
-def prepareEnv(){
+def prepareEnv(context, script){
   script.stage('prepare'){
      if (context.environment == 'QA'){
        echo 'QA env'
