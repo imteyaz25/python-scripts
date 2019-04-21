@@ -1,5 +1,5 @@
 def context
-def stage
+def stageName
 context = getBuildContext()
 
 timestamps{
@@ -39,7 +39,7 @@ def prepareEnv(context, stageName){
   }
 }
 
-def mediaInit(context, stagename){
+def mediaInit(context, stageName){
    stage(stageName){
       println(stageName)
    }
