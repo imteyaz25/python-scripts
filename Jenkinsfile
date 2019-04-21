@@ -10,7 +10,7 @@ timestamps{
 def context
 def script
 def getBuildContext(){
-  context = getContext
+  context = getContext()
   println(context)
 }
 
