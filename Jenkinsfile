@@ -1,17 +1,13 @@
-def context = getBuildContext{}
 timestamps{
   stage('first'){
-    prepareEnv(context)
+    hello('first')
   }
   stage('second'){
-    hello(context)
+    hello('second')
   }
 }
 
-def prepareEnv(context){
-   println(context.environment)
-}
 
-def hello(context){
-  println('Hello')
+def hello(str){
+  println(str)
 }
