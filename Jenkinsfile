@@ -4,7 +4,7 @@ context = getBuildContext()
 
 timestamps{
   stage('first'){
-    hello(context, script)
+    hello(context)
   }
   stage('second'){
     echo 'hello...'
