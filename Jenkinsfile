@@ -5,7 +5,7 @@ context = getBuildContext()
 timestamps{
    prepareEnv(context, 'prepare')
    mediaInit(context, 'Initialization')
-   mediaCodeDeployment(context, 'Deploment')
+   mediaCodeDeployment(context, 'Deployment')
    mediaFinish(context, 'Finish')
 }
 
