@@ -7,7 +7,7 @@ timestamps{
     hello(context, script)
   }
   stage('second'){
-    hello('second')
+    echo 'hello...'
   }
 }
 
@@ -24,6 +24,7 @@ def getBuildContext(){
 }
 
 def hello(context, script){
+  this.script = script
   if (context.environment == 'QA'){
     script.sh 'QA env'
   }
